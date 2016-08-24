@@ -1,0 +1,5 @@
+.fitrc
+.idea
+*.iml
+coco-tunnel-dns-registrator
+*.exe
