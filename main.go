@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/jawher/mow.cli"
 	"io"
 	"io/ioutil"
 	"log"
@@ -12,6 +11,8 @@ import (
 	"os"
 	"strings"
 	"time"
+
+	"github.com/jawher/mow.cli"
 )
 
 var httpClient = http.Client{
@@ -89,6 +90,7 @@ func getCurrentCNAME(c *conf, domain string) (string, error) {
 	if err != nil {
 		return "", err
 	}
+	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Accept", "application/json")
 	req.Header.Add("x-api-key", c.konsAPIKey)
 
